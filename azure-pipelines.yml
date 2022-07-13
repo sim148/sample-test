@@ -1,11 +1,16 @@
 # Maven
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'browserstack-connection'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
 - main
-
+- task: BrowserStackResults@1
+  inputs:
+    browserstackProduct: 'automate'
 pool:
   vmImage: ubuntu-latest
 
